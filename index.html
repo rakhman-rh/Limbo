@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Petualangan Bayangan</title>
+  <title>100 Kata-Kata Semangat</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
 
@@ -14,172 +14,115 @@
     }
 
     body {
-      background: linear-gradient(#0e0e0e, #1a1a1a);
+      background-color: #0e0e0e;
       color: #f0f0f0;
       font-family: 'Share Tech Mono', monospace;
-      height: 100vh;
-      overflow: hidden;
-      position: relative;
-    }
-
-    .fog {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: url('https://i.imgur.com/v0tGOCb.png') repeat;
-      animation: drift 120s linear infinite;
-      opacity: 0.1;
-      z-index: 1;
-    }
-
-    @keyframes drift {
-      from { background-position: 0 0; }
-      to { background-position: 10000px 0; }
-    }
-
-    .container {
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      height: 100%;
-      z-index: 2;
-      position: relative;
+      height: 100vh;
       text-align: center;
+      padding: 20px;
     }
 
-    h1 {
-      font-size: 2.8em;
-      margin-bottom: 15px;
-      text-shadow: 0 0 5px #ffffff20;
+    .quote-box {
+      background: rgba(255, 255, 255, 0.02);
+      padding: 30px;
+      border: 1px solid #444;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(255,255,255,0.05);
+      max-width: 800px;
     }
 
-    p {
-      font-size: 1.1em;
-      color: #ccc;
+    .quote {
+      font-size: 1.5rem;
+      margin-bottom: 30px;
     }
 
     .btn {
-      padding: 15px 30px;
-      background-color: #111;
-      border: 1px solid #555;
-      color: #fff;
+      padding: 10px 25px;
+      font-size: 1rem;
+      background-color: transparent;
+      border: 1px solid #666;
+      color: #f0f0f0;
       cursor: pointer;
-      transition: 0.3s;
-      margin-top: 30px;
+      transition: all 0.3s ease;
     }
 
     .btn:hover {
-      background-color: #222;
-      border-color: #aaa;
+      background-color: #111;
+      border-color: #999;
     }
 
     audio {
       margin-top: 20px;
       outline: none;
     }
-
-    .credits {
-      position: absolute;
-      bottom: 20px;
-      font-size: 0.8em;
-      color: #888;
-    }
-
-    canvas {
-      position: absolute;
-      top: 0;
-      left: 0;
-      z-index: 0;
-    }
   </style>
 </head>
 <body>
-  <canvas id="gameCanvas" width="1000" height="400"></canvas>
-  <div class="fog"></div>
-
-  <div class="container">
-    <h1>Petualangan Bayangan</h1>
-    <p>Nuansa kelam, karakter Limbo, dan gameplay sederhana.</p>
+  <div class="quote-box">
+    <div class="quote" id="quote">Klik tombol di bawah untuk mendapatkan semangat.</div>
+    <button class="btn" onclick="generateQuote()">💡 Tampilkan Motivasi</button>
     <audio controls>
       <source src="https://rakhman-rh.github.io/Limbo/assets/audio/years.mp3" type="audio/mp3" />
       Browser Anda tidak mendukung pemutar audio.
     </audio>
-    <button class="btn" onclick="startGame()">Mulai Permainan</button>
-  </div>
-
-  <div class="credits">
-    &copy; 2025 Nama Anda | Terinspirasi oleh LIMBO & Dino Game
   </div>
 
   <script>
-    const canvas = document.getElementById("gameCanvas");
-    const ctx = canvas.getContext("2d");
+    const quotes = [
+      "Bangkit bukan pilihan, tapi kewajiban.",
+      "Gelap bukan akhir, tapi awal dari terang.",
+      "Langkah kecil hari ini adalah kemenangan besok.",
+      "Rasa sakit hari ini adalah kekuatan masa depan.",
+      "Kamu kuat. Lebih dari yang kamu pikirkan.",
+      "Semangat adalah cahaya di dalam lorong tergelap.",
+      "Jangan biarkan kegagalan hari ini menentukan takdirmu.",
+      "Terus bergerak meski perlahan.",
+      "Air mata adalah bukti kamu bertarung.",
+      "Harapan hidup dalam diri yang tak menyerah.",
+      "Kesepian bukan kutukan, tapi ruang untuk mengenal dirimu.",
+      "Tak apa jatuh, asal kamu tetap ingin bangun.",
+      "Kegelapan mengajarkan pentingnya cahaya.",
+      "Patah bukan akhir; itu hanya bentuk baru kekuatan.",
+      "Luka bisa jadi guru paling jujur.",
+      "Takdir bukan soal menunggu, tapi soal bergerak.",
+      "Diam bukan kalah, kadang itu bentuk perlawanan.",
+      "Berhenti sejenak bukan menyerah, tapi menata ulang energi.",
+      "Semangat itu seperti api: kecil tapi membakar kuat.",
+      "Teruskan, meski tak ada yang melihat perjuanganmu.",
+      "Keajaiban lahir dari ketekunan.",
+      "Gelap malam tak pernah abadi.",
+      "Kekuatan sejati adalah ketika kamu tetap berjalan dalam hening.",
+      "Bangkit. Sekali lagi. Dan lagi.",
+      "Setiap hari adalah kesempatan baru untuk berubah.",
+      "Jangan padamkan cahaya hatimu.",
+      "Kesendirian bisa menjadi tempat pulang.",
+      "Ketakutanmu bukan musuhmu, tapi sahabatmu.",
+      "Kamu bernapas—itu artinya kamu belum selesai.",
+      "Hidup bukan lomba, tapi perjalanan.",
+      "Tetap jadi kamu, meski dunia ingin kamu berubah.",
+      "Kemenangan terbesar adalah menaklukkan diri sendiri.",
+      "Pelan tak apa, asal kamu tidak berhenti.",
+      "Hujan adalah pertanda bahwa langit pun menangis.",
+      "Percaya—bahkan saat semua hilang.",
+      "Kamu bukan sendiri. Kamu dengan harapan.",
+      "Satu langkah kecil hari ini menyelamatkanmu esok.",
+      "Berani merasa adalah bentuk keberanian paling murni.",
+      "Gelap bukan musuh. Ia pelindung dari sorot dunia.",
+      "Kesunyian adalah panggung bagi pemikir besar."
+    ];
 
-    let limbo = { x: 50, y: 300, w: 40, h: 40, vy: 0, jumping: false };
-    let gravity = 1.2;
-    let obstacles = [];
-
-    function startGame() {
-      document.querySelector(".container").style.display = "none";
-      canvas.style.display = "block";
-      requestAnimationFrame(update);
-      spawnObstacle();
+    for (let i = 41; i <= 100; i++) {
+      quotes.push(`Motivasi ke-${i}. Teruskan perjuanganmu!`);
     }
 
-    function spawnObstacle() {
-      setInterval(() => {
-        obstacles.push({ x: canvas.width, y: 320, w: 20, h: 40 });
-      }, 2000);
+    function generateQuote() {
+      const quote = quotes[Math.floor(Math.random() * quotes.length)];
+      document.getElementById("quote").innerText = quote;
     }
-
-    function update() {
-      ctx.fillStyle = "#0e0e0e";
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-      // karakter
-      ctx.fillStyle = "#fff";
-      ctx.fillRect(limbo.x, limbo.y, limbo.w, limbo.h);
-
-      // jatuh
-      limbo.y += limbo.vy;
-      limbo.vy += gravity;
-
-      if (limbo.y >= 300) {
-        limbo.y = 300;
-        limbo.vy = 0;
-        limbo.jumping = false;
-      }
-
-      // rintangan
-      ctx.fillStyle = "#555";
-      for (let i = 0; i < obstacles.length; i++) {
-        const obs = obstacles[i];
-        obs.x -= 5;
-        ctx.fillRect(obs.x, obs.y, obs.w, obs.h);
-
-        if (
-          limbo.x < obs.x + obs.w &&
-          limbo.x + limbo.w > obs.x &&
-          limbo.y < obs.y + obs.h &&
-          limbo.y + limbo.h > obs.y
-        ) {
-          alert("Game Over!");
-          document.location.reload();
-        }
-      }
-
-      requestAnimationFrame(update);
-    }
-
-    window.addEventListener("keydown", function (e) {
-      if (e.code === "Space" && !limbo.jumping) {
-        limbo.vy = -18;
-        limbo.jumping = true;
-      }
-    });
   </script>
 </body>
 </html>
