@@ -33,7 +33,7 @@
       border-radius: 10px;
       box-shadow: 0 0 10px rgba(255,255,255,0.05);
       max-width: 800px;
-      margin-top: 20px;
+      margin-top: 30px;
     }
 
     .quote {
@@ -58,8 +58,26 @@
     }
 
     audio {
-      margin: 30px 0 10px;
+      margin: 0 auto 30px;
       outline: none;
+      display: block;
+    }
+
+    .footer-box {
+      margin-top: 60px;
+      padding: 20px;
+      border-top: 1px solid #333;
+      max-width: 800px;
+      text-align: center;
+      font-size: 1.1rem;
+      line-height: 1.8;
+    }
+
+    .arabic {
+      font-size: 1.5rem;
+      color: #aaf;
+      direction: rtl;
+      margin-bottom: 10px;
     }
   </style>
 </head>
@@ -74,65 +92,73 @@
     <button class="btn" onclick="generateQuote()">💡 Tampilkan Motivasi</button>
   </div>
 
+  <div class="footer-box">
+    <div class="arabic">وَالَّذِينَ جَاهَدُوا فِينَا لَنَهْدِيَنَّهُمْ سُبُلَنَا</div>
+    "Dan orang-orang yang bersungguh-sungguh untuk (mencari keridhaan) Kami, benar-benar akan Kami tunjukkan kepada mereka jalan-jalan Kami." (QS. Al-Ankabut: 69)
+  </div>
+
   <script>
-    const quotes = [
-      "Setiap malam gelap adalah janji bahwa pagi akan datang.",
-      "Kau bisa tersesat dalam gelap, tapi kadang, justru di situlah kau menemukan dirimu.",
-      "Jangan tunggu pelita datang, jadilah pelita itu.",
-      "Kesendirian bukan akhir, tapi ruang untuk kembali mengenal dirimu sendiri.",
-      "Setiap luka, setiap jatuh, adalah bukti bahwa kamu pernah berani mencoba.",
-      "Terkadang kita harus kehilangan arah untuk menemukan tujuan baru.",
-      "Mereka bilang gelap itu menakutkan, tapi di sanalah bintang-bintang bersinar.",
-      "Kamu kuat bukan karena tidak pernah takut, tapi karena terus melangkah meski takut.",
-      "Diam bukan berarti kalah. Kadang, itu cara jiwa menyusun kekuatannya kembali.",
-      "Jika kamu merasa hancur, mungkin kamu sedang membangun ulang dengan fondasi yang lebih kuat.",
-      "Keheningan bisa jadi tempat paling bising jika kamu mendengarkan suara hatimu.",
-      "Kegagalan hanya berarti kamu cukup berani untuk mencoba.",
-      "Harapan tumbuh dalam tanah yang paling tandus sekalipun.",
-      "Cahaya tak pernah pergi. Kadang kita hanya memejamkan mata terlalu lama.",
-      "Gelap adalah lukisan tempat cahaya bisa menunjukkan keindahannya.",
-      "Jangan menyerah hanya karena dunia belum melihat sinarmu. Terus bersinar.",
-      "Rasa sakit hari ini bisa jadi cerita kekuatanmu esok hari.",
-      "Jangan bandingkan perjalananmu dengan orang lain. Fokuslah pada langkahmu sendiri.",
-      "Saat semua terasa kosong, ingat bahwa kamu masih bernapas. Itu sudah cukup.",
-      "Jiwa yang gelap tak selalu berarti jahat. Bisa jadi ia sedang belajar mencintai dirinya sendiri.",
-      "Pelan-pelan, tak apa. Yang penting kamu tetap melangkah.",
-      "Jangan takut gagal. Takutlah jika kamu tak pernah mencoba sama sekali.",
-      "Kamu tidak sendirian. Ada banyak hati yang juga sedang berjuang seperti kamu.",
-      "Jangan biarkan keraguan membunuh impianmu yang bahkan belum dimulai.",
-      "Cinta terbesar adalah ketika kamu bisa mencintai dirimu dalam keterpurukan.",
-      "Dalam diam, banyak suara yang meminta kamu tetap bertahan.",
-      "Semua badai pasti berlalu, bahkan yang tergelap sekalipun.",
-      "Menangis bukan berarti lemah. Itu tanda bahwa kamu masih peduli.",
-      "Jangan pernah berhenti bermimpi, bahkan jika mimpi itu terasa jauh.",
-      "Percayalah pada dirimu, bahkan ketika dunia tidak mempercayaimu.",
-      "Waktu sembuhkan segalanya, tapi usahamu mempercepat kesembuhan itu.",
-      "Kamu adalah cahaya dalam cerita kelammu sendiri.",
-      "Semesta mendengar doa yang kamu bisikkan dalam gelap.",
-      "Yang penting bukan siapa yang datang, tapi siapa yang tetap tinggal.",
-      "Hari buruk bukan hidup buruk. Besok bisa berbeda.",
-      "Ketika jatuh, jangan lihat luka. Lihatlah betapa jauh kamu sudah melangkah.",
-      "Hati yang patah bisa membentuk pelangi baru.",
-      "Tak ada yang abadi, termasuk rasa sakit ini.",
-      "Jangan biarkan hari ini mati tanpa kamu mencoba.",
-      "Kamu boleh rehat, tapi jangan menyerah.",
-      "Kadang kamu butuh gelap total untuk melihat siapa yang benar-benar bersinar.",
-      "Tiap malam panjang, akan ada pagi yang menyapa.",
-      "Jangan lupakan siapa kamu hanya karena dunia ingin kamu jadi orang lain.",
-      "Kekuatan sejati datang dari luka yang tak terlihat.",
-      "Semakin gelap malam, semakin dekat fajar.",
-      "Ketika kamu kehabisan alasan, ingat alasan kamu memulai.",
-      "Keteguhanmu hari ini adalah hadiah untuk dirimu di masa depan.",
-      "Kadang kehilangan arah justru menuntunmu ke tujuan yang lebih baik.",
-      "Hidup bukan soal menunggu badai reda, tapi belajar menari di tengah hujan."
+    let quotes = [
+      "Gelap adalah bagian dari cerita, bukan akhir dari segalanya. Suatu saat, kamu akan memahami betapa pentingnya masa-masa sulit itu.",
+      "Kadang perjalanan paling sepi membawa kita ke tempat paling berarti.",
+      "Dalam diam, kita seringkali menemukan makna yang paling jujur.",
+      "Malam bukan untuk menakuti, tapi untuk mengistirahatkan jiwa yang lelah.",
+      "Kamu sudah melangkah sejauh ini. Jangan sia-siakan perjuangan itu.",
+      "Tidak ada pelaut hebat yang lahir dari laut yang tenang.",
+      "Gelap bukan hanya ketiadaan cahaya, tapi kesempatan untuk belajar melihat dengan hati.",
+      "Kesedihan bukan musuh. Ia adalah guru yang keras namun jujur.",
+      "Setiap air mata yang jatuh mengandung kekuatan yang tak terlihat.",
+      "Jangan lari dari luka. Hadapilah, karena di balik luka ada pemulihan.",
+      "Ketika semua terlihat runtuh, kadang kamu sedang diarahkan membangun dari awal.",
+      "Ketakutan terbesar manusia adalah pada dirinya sendiri. Tapi di situlah juga kekuatan sejatinya.",
+      "Setiap hari adalah kesempatan untuk menulis ulang siapa kamu.",
+      "Jangan menunggu waktu yang tepat. Ciptakanlah.",
+      "Dunia gelap bukan berarti kamu tidak bisa bersinar.",
+      "Yang patah tak selalu harus dibuang. Kadang ia hanya perlu dirangkai ulang dengan cinta.",
+      "Hidup bukan soal seberapa keras kamu jatuh, tapi seberapa kuat kamu bangkit.",
+      "Kamu cukup. Bahkan ketika kamu merasa tidak.",
+      "Kegelapan hanya terasa menyakitkan jika kita lupa bahwa kita punya cahaya di dalam diri.",
+      "Keajaiban terjadi saat kamu memilih untuk tidak menyerah.",
+      "Kamu bukan cerita gagal. Kamu adalah novel yang sedang ditulis dengan babak-babak penuh perjuangan.",
+      "Terkadang, langkah kecil hari ini akan menjadi lompatan besar esok hari.",
+      "Ketika kamu merasa sendirian, lihatlah langit. Kamu bagian dari sesuatu yang besar.",
+      "Kamu tidak harus selalu kuat. Tapi kamu harus tetap ada.",
+      "Tak ada malam yang abadi. Fajar akan selalu menemukan jalannya.",
+      "Jika kamu merasa tidak berarti, ingat: bahkan bintang kecil bisa menerangi langit yang luas.",
+      "Jangan takut pada gelap. Justru di sanalah banyak hal bermula.",
+      "Kesunyian bisa menyembuhkan jika kamu mendengarkan hatimu.",
+      "Jangan biarkan masa lalu menenggelamkan potensi masa depanmu.",
+      "Terkadang yang kita butuhkan hanya satu kalimat: kamu akan baik-baik saja.",
+      "Bersinar tidak harus terang. Kadang cukup jadi cahaya kecil bagi seseorang di kegelapan.",
+      "Kekuatan sejati tidak terdengar, ia terasa dalam diam.",
+      "Perjalanan panjang dimulai dengan keberanian untuk melangkah sekali saja.",
+      "Ada harapan di setiap hela napas yang kamu ambil.",
+      "Jangan biarkan luka mengubahmu menjadi seseorang yang bukan kamu.",
+      "Kamu tidak terlambat. Kamu hanya sedang berjalan dengan waktu yang berbeda.",
+      "Tidak semua yang gelap buruk. Beberapa membawa ketenangan.",
+      "Jangan terlalu keras pada dirimu. Kamu sudah berjuang sejauh ini.",
+      "Bukan seberapa banyak yang kamu capai, tapi seberapa dalam kamu menghargainya.",
+      "Kamu tak harus dipahami oleh semua orang untuk menjadi berarti.",
+      "Jangan takut gagal. Itu tanda bahwa kamu sedang tumbuh.",
+      "Kesulitan hari ini akan menjadi kekuatan masa depanmu.",
+      "Jalan hidup tidak selalu lurus. Tapi setiap tikungan membawa cerita baru.",
+      "Jika kamu berhenti sekarang, kamu tidak akan tahu seberapa dekat kamu dengan tujuanmu.",
+      "Semangat itu seperti api kecil. Rawat dia, dan ia akan membakar gelapnya malam.",
+      "Jangan sia-siakan hari ini hanya karena kemarin tidak sesuai harapan.",
+      "Hanya karena belum terlihat hasilnya, bukan berarti usahamu sia-sia.",
+      "Badai pasti reda. Tapi yang kamu pelajari di tengah badai, akan tinggal selamanya.",
+      "Terkadang kegelapan adalah tempat terbaik untuk melihat cahaya kecil di dalam hatimu."
     ];
 
-    while (quotes.length < 100) {
-      quotes.push("Di balik setiap awan gelap, ada langit luas menanti untuk dilihat.");
-    }
+    const shownQuotes = new Set();
 
     function generateQuote() {
-      const quote = quotes[Math.floor(Math.random() * quotes.length)];
+      if (shownQuotes.size === quotes.length) shownQuotes.clear();
+      let quote;
+      do {
+        quote = quotes[Math.floor(Math.random() * quotes.length)];
+      } while (shownQuotes.has(quote));
+      shownQuotes.add(quote);
       document.getElementById("quote").innerText = quote;
     }
   </script>
