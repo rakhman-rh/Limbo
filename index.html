@@ -22,7 +22,7 @@
       align-items: center;
       justify-content: flex-start;
       min-height: 100vh;
-      padding: 40px 20px 60px;
+      padding: 40px 20px 100px;
       text-align: center;
     }
 
@@ -63,23 +63,31 @@
       display: block;
     }
 
-    .footer-box {
+    .quran-box {
       margin-top: 60px;
       padding: 20px;
-      border-top: 1px solid #333;
-      max-width: 800px;
-      text-align: center;
-      font-size: 1.1rem;
-      line-height: 1.8;
+      border: 1px solid #444;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.03);
+      max-width: 700px;
+      line-height: 2;
     }
 
     .arabic {
-      font-size: 1.5rem;
-      color: #aaf;
+      font-size: 1.8rem;
       direction: rtl;
       margin-bottom: 10px;
+      font-family: 'Amiri', serif;
+    }
+
+    .translation {
+      font-size: 1.1rem;
+      color: #ccc;
+      margin-top: 10px;
+      font-style: italic;
     }
   </style>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri&display=swap" rel="stylesheet">
 </head>
 <body>
   <audio controls>
@@ -92,9 +100,9 @@
     <button class="btn" onclick="generateQuote()">💡 Tampilkan Motivasi</button>
   </div>
 
-  <div class="footer-box">
-    <div class="arabic">وَالَّذِينَ جَاهَدُوا فِينَا لَنَهْدِيَنَّهُمْ سُبُلَنَا</div>
-    "Dan orang-orang yang bersungguh-sungguh untuk (mencari keridhaan) Kami, benar-benar akan Kami tunjukkan kepada mereka jalan-jalan Kami." (QS. Al-Ankabut: 69)
+  <div class="quran-box">
+    <div class="arabic">وَٱلَّذِينَ جَـٰهَدُوا۟ فِينَا لَنَهْدِيَنَّهُمْ سُبُلَنَا ۚ وَإِنَّ ٱللَّهَ لَمَعَ ٱلْمُحْسِنِينَ</div>
+    <div class="translation">“Dan orang-orang yang bersungguh-sungguh untuk (mencari keridhaan) Kami, benar-benar akan Kami tunjukkan kepada mereka jalan-jalan Kami. Dan sungguh, Allah benar-benar beserta orang-orang yang berbuat baik.” (QS. Al-Ankabut: 69)</div>
   </div>
 
   <script>
