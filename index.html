@@ -28,15 +28,13 @@
       color: #f0f0f0;
     }
 
-    /* Bagian ini saja yang diubah agar video background sesuai permintaan */
     #bg-video {
       position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
+      top: 0;
+      left: 0;
       width: 100vw;
       height: 100vh;
-      object-fit: contain;
+      object-fit: cover;
       z-index: -1;
       filter: brightness(0.2) blur(2px);
       pointer-events: none;
@@ -105,7 +103,7 @@
 <body>
 
   <!-- Video Background -->
-  <video autoplay muted loop id="bg-video">
+  <video autoplay muted loop playsinline id="bg-video">
     <source src="https://rakhman-rh.github.io/Limbo/assets/audio/sunset.mp4" type="video/mp4" />
     Browser Anda tidak mendukung pemutar video.
   </video>
