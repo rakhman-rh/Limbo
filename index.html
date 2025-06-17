@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tetap Semangat</title>
+  <title>100 Kata-Kata Semangat</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
     @import url('https://fonts.googleapis.com/css2?family=Amiri&display=swap');
@@ -15,6 +15,8 @@
     }
 
     body {
+      background-color: #0e0e0e;
+      color: #f0f0f0;
       font-family: 'Share Tech Mono', monospace;
       display: flex;
       flex-direction: column;
@@ -23,25 +25,19 @@
       min-height: 100vh;
       padding: 40px 20px 60px;
       text-align: center;
-      position: relative;
-      z-index: 1;
-      color: #f0f0f0;
     }
 
-    #bg-video {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      object-fit: cover;
-      z-index: -1;
-      filter: brightness(0.2) blur(2px);
-      pointer-events: none;
+    video, audio {
+      margin: 0 auto 30px;
+      outline: none;
+      display: block;
+      max-width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
     }
 
     .quote-box {
-      background: rgba(255, 255, 255, 0.03);
+      background: rgba(255, 255, 255, 0.02);
       padding: 30px;
       border: 1px solid #444;
       border-radius: 10px;
@@ -71,16 +67,10 @@
       border-color: #999;
     }
 
-    audio {
-      margin: 0 auto 30px;
-      outline: none;
-      display: block;
-    }
-
     .ayah-box {
       margin-top: 60px;
       padding: 20px;
-      background-color: rgba(255, 255, 255, 0.03);
+      background-color: rgba(255, 255, 255, 0.02);
       border: 1px solid #444;
       border-radius: 10px;
       max-width: 800px;
@@ -102,34 +92,29 @@
 </head>
 <body>
 
-  <!-- Video Background -->
-  <video autoplay muted loop playsinline id="bg-video">
-    <source src="https://rakhman-rh.github.io/Limbo/assets/audio/sunset.mp4" type="video/mp4" />
+  <video controls autoplay muted loop>
+    <source src="https://rakhman-rh.github.io/Limbo/assets/audio/sunset.mp4" type="video/mp4">
     Browser Anda tidak mendukung pemutar video.
   </video>
 
-  <!-- Audio Music -->
   <audio controls>
     <source src="https://rakhman-rh.github.io/Limbo/assets/audio/years.mp3" type="audio/mp3" />
     Browser Anda tidak mendukung pemutar audio.
   </audio>
 
-  <!-- Kutipan Semangat -->
   <div class="quote-box">
     <div class="quote" id="quote">Klik tombol di bawah untuk mendapatkan semangat.</div>
     <button class="btn" onclick="generateQuote()">✨ Tampilkan</button>
   </div>
 
-  <!-- Ayat Quran -->
   <div class="ayah-box">
     <div class="arabic" id="ayah-arabic"></div>
     <div class="translation" id="ayah-translation"></div>
   </div>
 
-  <!-- JavaScript -->
   <script>
     let quotes = [
-      "Gelap adalah bagian dari cerita, bukan akhir dari segalanya...",
+      "Gelap adalah bagian dari cerita, bukan akhir dari segalanya. Suatu saat, kamu akan memahami betapa pentingnya masa-masa sulit itu.",
       "Kadang perjalanan paling sepi membawa kita ke tempat paling berarti.",
       "Dalam diam, kita seringkali menemukan makna yang paling jujur.",
       "Malam bukan untuk menakuti, tapi untuk mengistirahatkan jiwa yang lelah.",
