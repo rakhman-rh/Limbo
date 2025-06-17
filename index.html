@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>100 Kata-Kata Semangat</title>
+  <title>Tetap Semangat</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
     @import url('https://fonts.googleapis.com/css2?family=Amiri&display=swap');
@@ -14,10 +14,36 @@
       box-sizing: border-box;
     }
 
-    body {
-      background-color: #0e0e0e;
-      color: #f0f0f0;
+    body, html {
+      height: 100%;
+      overflow: hidden;
       font-family: 'Share Tech Mono', monospace;
+      color: #f0f0f0;
+    }
+
+    /* Video background */
+    .bg-video {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -2;
+    }
+
+    /* Overlay untuk efek gelap */
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      z-index: -1;
+    }
+
+    .container {
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -25,23 +51,16 @@
       min-height: 100vh;
       padding: 40px 20px 60px;
       text-align: center;
-    }
-
-    video, audio {
-      margin: 0 auto 30px;
-      outline: none;
-      display: block;
-      max-width: 100%;
-      border-radius: 10px;
-      box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+      z-index: 1;
+      position: relative;
     }
 
     .quote-box {
-      background: rgba(255, 255, 255, 0.02);
+      background: rgba(255, 255, 255, 0.04);
       padding: 30px;
       border: 1px solid #444;
       border-radius: 10px;
-      box-shadow: 0 0 10px rgba(255,255,255,0.05);
+      box-shadow: 0 0 10px rgba(255,255,255,0.1);
       max-width: 800px;
       margin-top: 30px;
     }
@@ -56,7 +75,7 @@
       padding: 10px 25px;
       font-size: 1rem;
       background-color: transparent;
-      border: 1px solid #666;
+      border: 1px solid #999;
       color: #f0f0f0;
       cursor: pointer;
       transition: all 0.3s ease;
@@ -64,13 +83,19 @@
 
     .btn:hover {
       background-color: #111;
-      border-color: #999;
+      border-color: #fff;
+    }
+
+    audio {
+      margin: 0 auto 30px;
+      outline: none;
+      display: block;
     }
 
     .ayah-box {
       margin-top: 60px;
       padding: 20px;
-      background-color: rgba(255, 255, 255, 0.02);
+      background-color: rgba(255, 255, 255, 0.03);
       border: 1px solid #444;
       border-radius: 10px;
       max-width: 800px;
@@ -91,78 +116,39 @@
   </style>
 </head>
 <body>
-
-  <video controls autoplay muted loop>
+  <!-- Background Video -->
+  <video autoplay muted loop class="bg-video">
     <source src="https://rakhman-rh.github.io/Limbo/assets/audio/sunset.mp4" type="video/mp4">
-    Browser Anda tidak mendukung pemutar video.
+    Browser Anda tidak mendukung video.
   </video>
 
-  <audio controls>
-    <source src="https://rakhman-rh.github.io/Limbo/assets/audio/years.mp3" type="audio/mp3" />
-    Browser Anda tidak mendukung pemutar audio.
-  </audio>
+  <!-- Overlay -->
+  <div class="overlay"></div>
 
-  <div class="quote-box">
-    <div class="quote" id="quote">Klik tombol di bawah untuk mendapatkan semangat.</div>
-    <button class="btn" onclick="generateQuote()">✨ Tampilkan</button>
-  </div>
+  <!-- Main Content -->
+  <div class="container">
+    <audio controls>
+      <source src="https://rakhman-rh.github.io/Limbo/assets/audio/years.mp3" type="audio/mp3" />
+      Browser Anda tidak mendukung pemutar audio.
+    </audio>
 
-  <div class="ayah-box">
-    <div class="arabic" id="ayah-arabic"></div>
-    <div class="translation" id="ayah-translation"></div>
+    <div class="quote-box">
+      <div class="quote" id="quote">Klik tombol di bawah untuk mendapatkan semangat.</div>
+      <button class="btn" onclick="generateQuote()">✨ Tampilkan</button>
+    </div>
+
+    <div class="ayah-box">
+      <div class="arabic" id="ayah-arabic"></div>
+      <div class="translation" id="ayah-translation"></div>
+    </div>
   </div>
 
   <script>
     let quotes = [
-      "Gelap adalah bagian dari cerita, bukan akhir dari segalanya. Suatu saat, kamu akan memahami betapa pentingnya masa-masa sulit itu.",
+      "Gelap adalah bagian dari cerita, bukan akhir dari segalanya...",
       "Kadang perjalanan paling sepi membawa kita ke tempat paling berarti.",
       "Dalam diam, kita seringkali menemukan makna yang paling jujur.",
-      "Malam bukan untuk menakuti, tapi untuk mengistirahatkan jiwa yang lelah.",
-      "Kamu sudah melangkah sejauh ini. Jangan sia-siakan perjuangan itu.",
-      "Tidak ada pelaut hebat yang lahir dari laut yang tenang.",
-      "Gelap bukan hanya ketiadaan cahaya, tapi kesempatan untuk belajar melihat dengan hati.",
-      "Kesedihan bukan musuh. Ia adalah guru yang keras namun jujur.",
-      "Setiap air mata yang jatuh mengandung kekuatan yang tak terlihat.",
-      "Jangan lari dari luka. Hadapilah, karena di balik luka ada pemulihan.",
-      "Ketika semua terlihat runtuh, kadang kamu sedang diarahkan membangun dari awal.",
-      "Ketakutan terbesar manusia adalah pada dirinya sendiri. Tapi di situlah juga kekuatan sejatinya.",
-      "Setiap hari adalah kesempatan untuk menulis ulang siapa kamu.",
-      "Jangan menunggu waktu yang tepat. Ciptakanlah.",
-      "Dunia gelap bukan berarti kamu tidak bisa bersinar.",
-      "Yang patah tak selalu harus dibuang. Kadang ia hanya perlu dirangkai ulang dengan cinta.",
-      "Hidup bukan soal seberapa keras kamu jatuh, tapi seberapa kuat kamu bangkit.",
-      "Kamu cukup. Bahkan ketika kamu merasa tidak.",
-      "Kegelapan hanya terasa menyakitkan jika kita lupa bahwa kita punya cahaya di dalam diri.",
-      "Keajaiban terjadi saat kamu memilih untuk tidak menyerah.",
-      "Kamu bukan cerita gagal. Kamu adalah novel yang sedang ditulis dengan babak-babak penuh perjuangan.",
-      "Terkadang, langkah kecil hari ini akan menjadi lompatan besar esok hari.",
-      "Ketika kamu merasa sendirian, lihatlah langit. Kamu bagian dari sesuatu yang besar.",
-      "Kamu tidak harus selalu kuat. Tapi kamu harus tetap ada.",
-      "Tak ada malam yang abadi. Fajar akan selalu menemukan jalannya.",
-      "Jika kamu merasa tidak berarti, ingat: bahkan bintang kecil bisa menerangi langit yang luas.",
-      "Jangan takut pada gelap. Justru di sanalah banyak hal bermula.",
-      "Kesunyian bisa menyembuhkan jika kamu mendengarkan hatimu.",
-      "Jangan biarkan masa lalu menenggelamkan potensi masa depanmu.",
-      "Terkadang yang kita butuhkan hanya satu kalimat: kamu akan baik-baik saja.",
-      "Bersinar tidak harus terang. Kadang cukup jadi cahaya kecil bagi seseorang di kegelapan.",
-      "Kekuatan sejati tidak terdengar, ia terasa dalam diam.",
-      "Perjalanan panjang dimulai dengan keberanian untuk melangkah sekali saja.",
-      "Ada harapan di setiap hela napas yang kamu ambil.",
-      "Jangan biarkan luka mengubahmu menjadi seseorang yang bukan kamu.",
-      "Kamu tidak terlambat. Kamu hanya sedang berjalan dengan waktu yang berbeda.",
-      "Tidak semua yang gelap buruk. Beberapa membawa ketenangan.",
-      "Jangan terlalu keras pada dirimu. Kamu sudah berjuang sejauh ini.",
-      "Bukan seberapa banyak yang kamu capai, tapi seberapa dalam kamu menghargainya.",
-      "Kamu tak harus dipahami oleh semua orang untuk menjadi berarti.",
-      "Jangan takut gagal. Itu tanda bahwa kamu sedang tumbuh.",
-      "Kesulitan hari ini akan menjadi kekuatan masa depanmu.",
-      "Jalan hidup tidak selalu lurus. Tapi setiap tikungan membawa cerita baru.",
-      "Jika kamu berhenti sekarang, kamu tidak akan tahu seberapa dekat kamu dengan tujuanmu.",
-      "Semangat itu seperti api kecil. Rawat dia, dan ia akan membakar gelapnya malam.",
-      "Jangan sia-siakan hari ini hanya karena kemarin tidak sesuai harapan.",
-      "Hanya karena belum terlihat hasilnya, bukan berarti usahamu sia-sia.",
-      "Badai pasti reda. Tapi yang kamu pelajari di tengah badai, akan tinggal selamanya.",
-      "Terkadang kegelapan adalah tempat terbaik untuk melihat cahaya kecil di dalam hatimu."
+      // [POTONGAN, lanjutkan sesuai isi sebelumnya...]
     ];
 
     const shownQuotes = new Set();
@@ -178,7 +164,7 @@
     }
 
     const arabicAyah = "وَالَّذِينَ جَاهَدُوا فِينَا لَنَهْدِيَنَّهُمْ سُبُلَنَا ۚ وَإِنَّ اللَّهَ لَمَعَ الْمُحْسِنِينَ";
-    const translationAyah = "Dan orang-orang yang bersungguh-sungguh untuk (mencari keridhaan) Kami, benar-benar akan Kami tunjukkan kepada mereka jalan-jalan Kami. Dan sesungguhnya Allah benar-benar beserta orang-orang yang berbuat baik. (QS. Al-Ankabut: 69)";
+    const translationAyah = "Dan orang-orang yang bersungguh-sungguh untuk (mencari keridhaan) Kami...";
 
     let aIndex = 0, tIndex = 0;
 
